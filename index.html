@@ -1,700 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Md Mahbub Ul Hassan Sharan | Portfolio</title>
-    <!-- Tailwind CSS for styling -->
+    <script src="tailwind-config.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Merriweather', 'serif'],
-                    },
-                    colors: {
-                        primary: '#1e3a8a', // Deep Blue for academic feel
-                        secondary: '#0ea5e9',
-                        dark: '#1e293b',
-                        light: '#f8fafc',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        /* Smooth transitions for tab switching */
-        .page-section {
-            display: none;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .page-section.active {
-            display: block;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .nav-link.active-nav {
-            color: #1e3a8a;
-            border-bottom: 2px solid #1e3a8a;
-            font-weight: 600;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-light text-gray-800 font-sans antialiased flex flex-col min-h-screen">
-
-    <!-- Navigation Bar -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white shadow-sm sticky top-0 z-50 site-header">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 gap-4">
-                <!-- Logo / Name -->
-                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="switchTab('about')">
-                    <img src="image_2d129c.png" alt="mH Sharan Logo" class="h-10 md:h-14 object-contain" onerror="this.outerHTML='<h1 class=\'font-serif font-bold text-xl md:text-2xl text-primary truncate\'>Md Mahbub Ul Hassan Sharan</h1>'">
-                </div>
-
-                <!-- Desktop Menu -->
+                <div class="flex-shrink-0 flex items-center site-logo"><a href="index.html"><img src="images/logo.png" alt="mH Sharan Logo" class="h-10 md:h-14 object-contain"></a></div>
                 <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
-                    <button onclick="switchTab('about')" class="nav-link active-nav text-gray-600 hover:text-primary transition-colors py-2 text-sm uppercase tracking-wider whitespace-nowrap">About</button>
-                    <button onclick="switchTab('resume')" class="nav-link text-gray-600 hover:text-primary transition-colors py-2 text-sm uppercase tracking-wider whitespace-nowrap">Resume</button>
-                    <button onclick="switchTab('research')" class="nav-link text-gray-600 hover:text-primary transition-colors py-2 text-sm uppercase tracking-wider whitespace-nowrap">Research & Grants</button>
-                    <button onclick="switchTab('writings')" class="nav-link text-gray-600 hover:text-primary transition-colors py-2 text-sm uppercase tracking-wider whitespace-nowrap">Writings</button>
-                    <button onclick="switchTab('teaching')" class="nav-link text-gray-600 hover:text-primary transition-colors py-2 text-sm uppercase tracking-wider whitespace-nowrap">Teaching</button>
+                    <a href="index.html" class="nav-link active-nav text-gray-600 hover:text-primary">About</a>
+                    <a href="resume.html" class="nav-link text-gray-600 hover:text-primary">Resume</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-primary">Research</a>
+                    <a href="writings.html" class="nav-link text-gray-600 hover:text-primary">Writings</a>
+                    <a href="teaching.html" class="nav-link text-gray-600 hover:text-primary">Teaching</a>
                 </nav>
-
-                <!-- Mobile Menu Button -->
-                <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-primary focus:outline-none p-2">
-                        <i class="fas fa-bars text-2xl"></i>
-                    </button>
-                </div>
+                <div class="lg:hidden flex items-center"><button id="mobile-menu-btn" class="text-gray-600 hover:text-primary p-2"><i class="fas fa-bars text-2xl"></i></button></div>
             </div>
         </div>
-
-        <!-- Mobile Menu (Hidden by default) -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4 shadow-inner">
             <div class="flex flex-col px-4 pt-2">
-                <button onclick="switchTab('about'); toggleMobileMenu()" class="text-left py-3 px-2 text-gray-600 hover:bg-gray-50 hover:text-primary font-medium rounded transition">About</button>
-                <button onclick="switchTab('resume'); toggleMobileMenu()" class="text-left py-3 px-2 text-gray-600 hover:bg-gray-50 hover:text-primary font-medium rounded transition">Resume</button>
-                <button onclick="switchTab('research'); toggleMobileMenu()" class="text-left py-3 px-2 text-gray-600 hover:bg-gray-50 hover:text-primary font-medium rounded transition">Research & Grants</button>
-                <button onclick="switchTab('writings'); toggleMobileMenu()" class="text-left py-3 px-2 text-gray-600 hover:bg-gray-50 hover:text-primary font-medium rounded transition">Writings</button>
-                <button onclick="switchTab('teaching'); toggleMobileMenu()" class="text-left py-3 px-2 text-gray-600 hover:bg-gray-50 hover:text-primary font-medium rounded transition">Teaching</button>
+                <a href="index.html" class="py-3">About</a>
+                <a href="resume.html" class="py-3">Resume</a>
+                <a href="research.html" class="py-3">Research</a>
+                <a href="writings.html" class="py-3">Writings</a>
+                <a href="teaching.html" class="py-3">Teaching</a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Area -->
     <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
-
-        <!-- ABOUT SECTION -->
-        <section id="about" class="page-section active">
+        <section class="page-section active">
             <div class="flex flex-col md:flex-row gap-12 items-start">
-                
-                <!-- Profile Image Placeholder -->
                 <div class="w-full md:w-1/3 flex flex-col items-center">
-                    <!-- <h2 class="text-xl md:text-lg lg:text-xl font-serif font-bold text-slate-600 mb-6 text-center leading-tight whitespace-nowrap">Md Mahbub Ul Hassan <span class="text-blue-700">Sharan</span></h2> -->
-                <div class="w-64 h-64 rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center">
-                        <img src="mhsharan.png" alt="Md Mahbub Ul Hassan Sharan" class="w-full h-full object-cover">
-                </div>
+                    <div class="w-64 h-64 rounded-full bg-gray-200 border-4 border-white shadow-lg overflow-hidden flex items-center justify-center">
+                        <img src="images/mhsharan.png" alt="Md Mahbub Ul Hassan Sharan" class="w-full h-full object-cover">
+                    </div>
                     <div class="mt-8 flex space-x-4">
-                        <a href="mailto:mahbubul.sharan@gmail.com" class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-blue-800 transition shadow">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/mhsharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:bg-blue-800 transition shadow">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="https://www.instagram.com/m.h.sharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#E1306C] text-white flex items-center justify-center hover:bg-pink-700 transition shadow">
-                            <i class="fab fa-instagram"></i>
-                        </a>
+                        <a href="mailto:mahbubul.sharan@gmail.com" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-800 transition shadow"><i class="fas fa-envelope"></i></a>
+                        <a href="https://www.linkedin.com/in/mhsharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:bg-blue-800 transition shadow"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/m.h.sharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#E1306C] text-white flex items-center justify-center hover:bg-pink-700 transition shadow"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
-                <!-- Bio Content -->
                 <div class="w-full md:w-2/3">
                     <h2 class="text-4xl font-serif font-bold text-dark mb-4">Hi! Nice to meet you!</h2>
-                    <p class="text-xl text-gray-600 mb-8 font-light">
-                        I am <span class="font-semibold text-primary">Sharan</span>, currently conducting research in the nexus of Climate Change, Migration, WASH and Quality of Life.
-                    </p>
+                    <p class="text-xl text-gray-600 mb-8 font-light">I am <span class="font-semibold text-primary">Sharan</span>, currently conducting research in the nexus of Climate Change, Migration, WASH and Quality of Life.</p>
 
                     <div class="mb-8">
                         <h3 class="text-lg font-semibold border-b-2 border-gray-200 pb-2 mb-4 uppercase tracking-wider text-gray-500">Ongoing Professional Commitments</h3>
                         <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <i class="fas fa-briefcase text-secondary mt-1 mr-3"></i>
-                                <div>
-                                    <h4 class="font-semibold text-dark">Senior Research Associate</h4>
-                                    <p class="text-gray-600 text-sm">Environment and Climate Change Research Group,<br>BRAC Institute of Governance and Development, Bangladesh.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-briefcase text-secondary mt-1 mr-3"></i>
-                                <div>
-                                    <h4 class="font-semibold text-dark">Senior Analyst</h4>
-                                    <p class="text-gray-600 text-sm">Research & Evaluation Unit, Poverty Alleviation Cluster, BRAC.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-chalkboard-teacher text-secondary mt-1 mr-3"></i>
-                                <div>
-                                    <h4 class="font-semibold text-dark">Graduate Teaching Assistant</h4>
-                                    <p class="text-gray-600 text-sm">Master of Development Studies, BRAC University.</p>
-                                </div>
-                            </li>
+                            <li class="flex items-start"><i class="fas fa-briefcase text-secondary mt-1 mr-3"></i><div><h4 class="font-semibold text-dark">Senior Research Associate</h4><p class="text-gray-600 text-sm">Environment and Climate Change Research Group, BRAC Institute of Governance and Development, Bangladesh.</p></div></li>
+                            <li class="flex items-start"><i class="fas fa-briefcase text-secondary mt-1 mr-3"></i><div><h4 class="font-semibold text-dark">Senior Analyst</h4><p class="text-gray-600 text-sm">Research & Evaluation Unit, Poverty Alleviation Cluster, BRAC.</p></div></li>
+                            <li class="flex items-start"><i class="fas fa-chalkboard-teacher text-secondary mt-1 mr-3"></i><div><h4 class="font-semibold text-dark">Graduate Teaching Assistant</h4><p class="text-gray-600 text-sm">Master of Development Studies, BRAC University.</p></div></li>
                         </ul>
                     </div>
 
                     <div class="prose max-w-none text-gray-700 space-y-4 leading-relaxed">
-                        <p>
-                            Trained as a Water Resource Engineer at Bangladesh University of Engineering and Technology (BUET), I worked briefly in the sector of water networks at the Bangladesh Water Development Board. With an ambition to engage and contribute more in the environmental social science knowledge domain, I pursued a Master of Development Studies. 
-                        </p>
-                        <p>
-                            My current research focuses on climate-induced migration, climate change adaptation, WASH, and Quality of Life. I also contribute to teaching a master level program at BRAC University.
-                        </p>
-                        <p>
-                            In my (hardly) free time, I am learning <a href="https://mhsharan.crevado.com/" target="_blank" class="text-secondary hover:underline font-medium">photography</a> & try doing creative <a href="https://mhsharan.wordpress.com/" target="_blank" class="text-secondary hover:underline font-medium">writing</a>. I love travelling and meeting new people, learning from their experiences. And wherever I go, I don't need to find the dog babies, they find me!
-                        </p>
+                        <p>Trained as a Water Resource Engineer at Bangladesh University of Engineering and Technology (BUET), I worked briefly in the sector of water networks at the Bangladesh Water Development Board. With an ambition to engage and contribute more in the environmental social science knowledge domain, I pursued a Master of Development Studies.</p>
+                        <p>My current research focuses on climate-induced migration, climate change adaptation, WASH, and Quality of Life. I also contribute to teaching a master level program at BRAC University.</p>
+                        <p>In my (hardly) free time, I am learning <a href="https://mhsharan.crevado.com/" target="_blank" class="text-secondary hover:underline font-medium">photography</a> & try doing creative <a href="https://mhsharan.wordpress.com/" target="_blank" class="text-secondary hover:underline font-medium">writing</a>. I love travelling and meeting new people, learning from their experiences.</p>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- RESUME SECTION -->
-        <section id="resume" class="page-section">
-            <h2 class="text-3xl font-serif font-bold text-dark mb-8 border-b pb-4">Curriculum Vitae</h2>
-            
-            <div class="mb-8 flex justify-end">
-                <a href="#" class="bg-primary text-white px-6 py-2 rounded shadow hover:bg-blue-800 transition flex items-center">
-                    <i class="fas fa-download mr-2"></i> Download Full Resume (PDF)
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Left Column: Work Experience -->
-                <div>
-                    <h3 class="text-xl font-semibold mb-6 flex items-center text-primary"><i class="fas fa-briefcase mr-2"></i> Work Experience</h3>
-                    
-                    <div class="relative pl-6 border-l-2 border-gray-200 space-y-8">
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Senior Analyst</h4>
-                            <p class="text-primary text-sm font-medium mb-1">September 2025 - Present</p>
-                            <p class="text-gray-600 text-sm">Research & Evaluation, Poverty Alleviation Cluster, BRAC</p>
-                        </div>
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Senior Research Associate</h4>
-                            <p class="text-primary text-sm font-medium mb-1">July 2025 - Present</p>
-                            <p class="text-gray-600 text-sm">BRAC Institute of Governance and Development</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Graduate Teaching Assistant</h4>
-                            <p class="text-primary text-sm font-medium mb-1">June 2025 - Present</p>
-                            <p class="text-gray-600 text-sm">Master of Development Studies, BRAC University</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Field Research Supervisor</h4>
-                            <p class="text-primary text-sm font-medium mb-1">October 2023 - August 2024</p>
-                            <p class="text-gray-600 text-sm">BRAC Institute of Governance and Development</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Research Associate</h4>
-                            <p class="text-primary text-sm font-medium mb-1">March 2023 - June 2025</p>
-                            <p class="text-gray-600 text-sm">BRAC Institute of Governance and Development</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] bg-white border-2 border-primary w-4 h-4 rounded-full mt-1.5"></div>
-                            <h4 class="font-bold text-lg text-dark">Intern</h4>
-                            <p class="text-primary text-sm font-medium mb-1">2018</p>
-                            <p class="text-gray-600 text-sm">Bangladesh Water Development Board</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Education, Awards, Certifications, Languages -->
-                <div class="space-y-12">
-                    
-                    <!-- Education -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 flex items-center text-primary"><i class="fas fa-graduation-cap mr-2"></i> Education</h3>
-                        
-                        <div class="relative pl-6 border-l-2 border-gray-200 space-y-8">
-                            <div class="relative">
-                                <div class="absolute -left-[31px] bg-white border-2 border-secondary w-4 h-4 rounded-full mt-1.5"></div>
-                                <h4 class="font-bold text-lg text-dark">Master of Development Studies</h4>
-                                <p class="text-secondary text-sm font-medium mb-2">BRAC University</p>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-2">Received training in Environmental Economics, Governance, Policy Analysis, Monitoring and Evaluation, Research Design, Data Analysis, Project management etc.</p>
-                                <p class="text-sm font-semibold italic text-primary">Award: Summa cum laude</p>
-                            </div>
-                            
-                            <div class="relative">
-                                <div class="absolute -left-[31px] bg-white border-2 border-secondary w-4 h-4 rounded-full mt-1.5"></div>
-                                <h4 class="font-bold text-lg text-dark">B.Sc. Engr. in Water Resources Engineering</h4>
-                                <p class="text-secondary text-sm font-medium mb-2">Bangladesh University of Engineering & Technology (BUET)</p>
-                                <p class="text-gray-600 text-sm leading-relaxed">Learned and worked in Fluid Dynamics, River network, Environmental Pollutants, Geographic Information System (GIS), Matlab</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Awards -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 flex items-center text-primary"><i class="fas fa-trophy mr-2"></i> Academic & Professional Awards</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-award text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">BIGD Star Employee of 2024-25</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-award text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">National Government Scholarship: Secondary School Certificate</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-award text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">National Government Scholarship: Higher Secondary School Certificate</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Certifications -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 flex items-center text-primary"><i class="fas fa-certificate mr-2"></i> Certifications</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">Monitoring, Evaluation, Accountability and Learning (MEAL), Certification by DisasterReady.org</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">Research Ethics Certification, Social and Behavioral Research: CITI Program</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">Advancing Sustainable Development in Practice, United Nations Institute for Training and Research (UNITAR)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-green-500 mt-1 mr-3 flex-shrink-0"></i>
-                                <span class="text-gray-700 text-sm">Human Health and Climate Change, United Nations Institute for Training and Research (UNITAR)</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Language Skills -->
-                    <div>
-                        <h3 class="text-xl font-semibold mb-6 flex items-center text-primary"><i class="fas fa-language mr-2"></i> Language Skills</h3>
-                        <div class="flex flex-wrap gap-3">
-                            <span class="bg-white text-gray-800 text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm"><span class="font-semibold text-primary">Bengali:</span> Native</span>
-                            <span class="bg-white text-gray-800 text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm"><span class="font-semibold text-primary">English:</span> Proficient</span>
-                            <span class="bg-white text-gray-800 text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm"><span class="font-semibold text-primary">German:</span> Beginner</span>
-                            <span class="bg-white text-gray-800 text-sm px-4 py-2 rounded-full border border-gray-200 shadow-sm"><span class="font-semibold text-primary">Hindi:</span> Verbal communication</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- RESEARCH & GRANTS SECTION -->
-        <section id="research" class="page-section">
-            <h2 class="text-3xl font-serif font-bold text-dark mb-8 border-b pb-4">Research Projects & Grants</h2>
-            
-            <p class="text-gray-700 mb-8 text-lg">
-                My academic inquiry revolves around environmental social science, with a specific focus on the intersection of physical environments and human well-being.
-            </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Research Areas Cards -->
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <i class="fas fa-cloud-sun text-3xl text-secondary mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Climate-Induced Migration</h3>
-                    <p class="text-gray-600">Exploring the social and economic dynamics of communities displaced by environmental changes and structural adaptation measures.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <i class="fas fa-leaf text-3xl text-green-500 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Climate Change Adaptation</h3>
-                    <p class="text-gray-600">Evaluating strategies and policy interventions aimed at building resilience in vulnerable populations.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <i class="fas fa-tint text-3xl text-blue-400 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">WASH</h3>
-                    <p class="text-gray-600">Water, Sanitation, and Hygiene interventions and their impact on public health and poverty alleviation.</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition">
-                    <i class="fas fa-heartbeat text-3xl text-red-400 mb-4"></i>
-                    <h3 class="text-xl font-bold mb-2">Quality of Life</h3>
-                    <p class="text-gray-600">Measuring multi-dimensional poverty and the holistic well-being of targeted demographics in development programs.</p>
-                </div>
-            </div>
-
-            <!-- Recent Projects and Grants -->
-            <div class="mt-16">
-                <h3 class="text-2xl font-serif font-bold text-dark mb-6 border-b pb-2">Research Grants</h3>
-                
-                <!-- FCDO Grant Card -->
-                <div class="bg-blue-50 border border-blue-100 p-6 rounded-lg shadow-sm mb-12">
-                    <div class="flex flex-col md:flex-row justify-between md:items-start gap-4 mb-4">
-                        <div>
-                            <h4 class="text-xl font-bold text-primary">FCDO Research Funding</h4>
-                            <p class="text-gray-700 font-medium"><a href="https://bigd.bracu.ac.bd/the-foundation-project_about/research-initiative-on-governance-development-and-economy-ridge/" target="_blank" class="text-primary hover:text-blue-800 hover:underline transition-colors">Research Initiative on Development, Governance and Economy (RIDGE)</a></p>
-                        </div>
-                        <div class="bg-green-100 text-green-800 text-sm font-semibold px-4 py-1.5 rounded-full whitespace-nowrap self-start">
-                            <i class="fas fa-check-circle mr-1"></i> Awarded $10,000 grant
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-700 mt-4 border-t border-blue-200 pt-4">
-                        <div>
-                            <span class="font-semibold text-gray-900 block mb-1"><i class="fas fa-user-tie mr-2 text-secondary"></i>Role</span>
-                            Principal Investigator (P.I.)
-                        </div>
-                        <div>
-                            <span class="font-semibold text-gray-900 block mb-1"><i class="fas fa-microscope mr-2 text-secondary"></i>Research Domain</span>
-                            Climate Shocks, Climate Induced Migration, Policy Planning
-                        </div>
-                        <div class="md:col-span-2 mt-2">
-                            <span class="font-semibold text-gray-900 block mb-1"><i class="fas fa-file-alt mr-2 text-secondary"></i>Proposal</span>
-                            <span class="italic">"Evidence-Driven Climate Migration Hotspot Mapping for Proactive Policy Planning in Bangladesh"</span>
-                        </div>
-                    </div>
-                </div>
-
-                <h3 class="text-2xl font-serif font-bold text-dark mb-6 border-b pb-2">Selected Recent Works</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">Do development interventions address the aspirational poverty of urban ultra-poor? – A BRAC x BIGD collaborative long-term follow-up study (2025)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">BRAC ICCP Baseline: Resilient livelihood, improved WASH services & disaster preparedness (2025)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">Evaluating the efficiency of vulnerability index-based targeting for Ultra Poor Graduation in comparison to traditional targeting (2025)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">With <a href="https://www.stefanocaria.com/" target="_blank" class="font-semibold text-primary hover:underline">Dr. Stefano Caria</a> & <a href="https://scholar.google.com/citations?user=Z0mS94cAAAAJ&hl=en" target="_blank" class="font-semibold text-primary hover:underline">Dr. Munshi Sulaiman</a> - Fostering adaptation to climate change among the poor in Bangladesh: A Randomized Control Trial study (ongoing)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700"><a href="https://bigd.bracu.ac.bd/the-foundation-project_about/pulse-survey-july-2025/" target="_blank" class="font-semibold text-primary hover:underline">Pulse Survey</a> on Citizen Perceptions, Expectations, and Experiences: Rapid Research Response (RRR 2024)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">Microdata directory, spatial data repository, and District Dashboard for <a href="https://datahubbd.org/" target="_blank" class="font-semibold text-primary hover:underline">IGC-BIGD Datahub</a> (2023–24)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">Economic recovery of climate migrants and new poor living in climate-vulnerable urban low-income settlements (2023–24)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700">Strengthening recovery capacity of COVID-19 and climate change-affected households through skills training targeting youth in the families (2023–24)</span>
-                    </li>
-                    <li class="flex items-start">
-                        <i class="fas fa-bookmark text-secondary mt-1 mr-3 flex-shrink-0"></i>
-                        <span class="text-gray-700"><a href="https://bigd.bracu.ac.bd/publications/summary-of-findings-evaluations-of-seven-climate-bridge-fund-supported-projects/" target="_blank" class="font-semibold text-primary hover:underline">Evaluations of Seven Climate Bridge Fund Supported Projects</a> (2023-2024)</span>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- WRITINGS SECTION -->
-        <section id="writings" class="page-section">
-            <h2 class="text-3xl font-serif font-bold text-dark mb-8 border-b pb-4">Writings & Creative Work</h2>
-            
-            <div class="flex flex-col md:flex-row gap-8 mb-16">
-                <div class="w-full md:w-1/2 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden group">
-                    <div class="h-40 bg-gray-100 flex items-center justify-center border-b group-hover:bg-gray-200 transition">
-                        <i class="fas fa-pen-nib text-5xl text-gray-400 group-hover:text-primary transition"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Creative Writing</h3>
-                        <p class="text-gray-600 mb-4">A collection of my thoughts, stories, and creative expressions outside of formal academic research.</p>
-                        <a href="https://mhsharan.wordpress.com/" target="_blank" class="text-primary font-medium hover:underline flex items-center">
-                            Visit my WordPress Blog <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="w-full md:w-1/2 bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden group">
-                    <div class="h-40 bg-gray-100 flex items-center justify-center border-b group-hover:bg-gray-200 transition">
-                        <i class="fas fa-camera text-5xl text-gray-400 group-hover:text-secondary transition"></i>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Photography</h3>
-                        <p class="text-gray-600 mb-4">Visual storytelling from my travels and fieldwork. Capturing the environment, people, and the occasional dog.</p>
-                        <a href="https://mhsharan.crevado.com/" target="_blank" class="text-secondary font-medium hover:underline flex items-center">
-                            View Portfolio <i class="fas fa-external-link-alt ml-2 text-sm"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recent Publications -->
-            <div>
-                <h3 class="text-2xl font-serif font-bold text-dark mb-6 border-b pb-2">Recent Publications</h3>
-                <div class="space-y-4">
-                    
-                    <!-- Publication 1 -->
-                    <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
-                        <button onclick="toggleAccordion('pub1')" class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 focus:outline-none transition-colors">
-                            <div class="pr-4">
-                                <h4 class="text-lg font-bold text-primary">Invisible Infrastructure: Why Climate Justice Demands Recognizing Indigenous Systems</h4>
-                                <p class="text-sm text-gray-500 mt-1">Published on <span class="font-semibold text-gray-700">Global Center for Climate Justice</span></p>
-                            </div>
-                            <i id="icon-pub1" class="fas fa-chevron-down text-gray-400 transition-transform duration-300 flex-shrink-0"></i>
-                        </button>
-                        <div id="pub1" class="hidden p-6 border-t border-gray-200 bg-gray-50 text-gray-700 text-sm leading-relaxed">
-                            <p class="mb-4">As world leaders convened for the UN climate summit, exemplified by the record gathering at COP30 in Belém, Brazil, Indigenous communities made an unequivocal stand: "the answer is us", and emphasized that current global deliberations are fundamentally insufficient. Still, the most proven forms of adaptation are missing from global leaders' plans.</p>
-                            <p class="mb-4">Everywhere you go, from desert oases to mountain villages, from tropical lowlands to frozen tundra, Indigenous communities have quietly cultivated resilience. Their strategies are not experiments. They are living systems, refined over centuries, rooted in ecosystems, born from necessity. Yet climate policy still overlooks them, preferring shiny new infrastructure and expensive technologies.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">The Original Engineers of Resilience</h5>
-                            <p class="mb-4">Across continents, Indigenous peoples engineered living systems that harnessed water, soil, fire, and forest long before "climate adaptation" entered the policy vocabulary. In Nagaland, India, the Rüza system collects rainwater in hillside ponds and channels it into terraced rice fields and fish ponds. It is gravity-fed, low-cost and centuries old. Mention climate adaptation at a global summit, and solutions like this are rarely on the agenda.</p>
-                            <p class="mb-4">In Niger, a quiet revolution began in the 1980s. Farmers stopped cutting tree shoots sprouting from their land and nurtured them instead. This simple act, now known as Farmer-Managed Natural Regeneration (FMNR), has restored more than five million hectares. It has slowed desertification, revived soils, and supported rural livelihoods. Across the Sahel, from Ethiopia to Senegal, it has become one of the most effective land restoration tools available.</p>
-                            <p class="mb-4">Forests tell a similar story. In Nepal, community forestry groups manage woodlands, improving biodiversity and household income. In Indonesia, social forestry gives villagers the right to steward forests sustainably. These approaches endure because they are anchored in local ownership and knowledge.</p>
-                            <p class="mb-4">Even fire, feared in most policy frameworks, has long been used as a tool. Aboriginal Australians practiced cultural burning for millennia, setting low-intensity fires to renew grasslands and prevent catastrophic blazes. In North America, Indigenous nations are reviving the practice and working with agencies to reduce megafire risks. Governments are re-learning that fire, when guided by tradition, saves lives and restores balance.</p>
-                            <p class="mb-4">From Mexico's Sierra Norte, where Nahua and Totonaku families maintain forest gardens that feed households and conserve biodiversity, to Kenya's Green Belt Movement, which began with women planting trees for fuel and grew into a campaign that has put more than 50 million trees in the ground, the evidence is everywhere. In the Peruvian Amazon, the Matsés people are reviving permaculture rooted in ancestral practice to generate income without destroying forests. In Central America, Maya farmers still rotate maize, beans and squash in the milpa system, which keeps soils fertile and diets secure even under harsh conditions.</p>
-                            <p class="mb-4">These are not relics. They are living climate solutions. Yet in most policy spaces they remain invisible, dismissed as "local" or "informal." Scaling them starts with recognition. National adaptation plans must stop treating Indigenous knowledge as anecdote and begin naming it as adaptation. Practices such as Farmer-Managed Regeneration, milpa farming or cultural burning deserve the same funding, research, and policy space as solar panels or seawalls.</p>
-                            <p class="mb-4">Scaling must also be ethical. Knowledge holders must retain ownership and rights. Models like Indonesia's social forestry or the Land Back movement in the United States, where tribes restore ancestral territories for ecological regeneration, show how resilience and justice can work together. This is not a choice between tradition and infrastructure. Reforestation is stronger when it builds on Farmer-Managed Regeneration. Fire safety improves when cultural burning is restored. Even urban water systems can learn from floating gardens and raised fields that echo ancient practice, as Julia Watson describes in Lo-TEK. These examples prove that Indigenous practices are capable of achieving climate outcomes that top-down engineering simply cannot match. This approach closes the gap between climate policy and human rights.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">Scaling the Proven</h5>
-                            <p class="mb-4">Across the world, the calls for a different model are growing louder. Inuit communities in the Arctic, pastoralists in Chad, reindeer herders in Finland, and farmers in the Amazon are not waiting for outside solutions; they are actively working with scientists to co-design sophisticated climate services. From early-warning systems for unpredictable rains, to mapping shifting sea ice, these collaborations demonstrate knowledge flowing in two directions. Satellite data meets centuries of careful, on-the-ground observation, and the result is adaptation that is sharper, more accurate, and immediately practical for the people who need it most. This approach is not a supplement to science; it is an improvement on it.</p>
-                            <p class="mb-4">If we are truly serious about climate adaptation, we must scale what is already proven to work. Indigenous practices have survived centuries of environmental change, political upheaval, and economic pressure. Their longevity is the ultimate proof of concept. They remain uniquely cost-effective because they rely on natural processes, ecological literacy, and human labour rather than capital-intensive, heavy infrastructure that often requires foreign maintenance.</p>
-                            <p class="mb-4">More importantly, these Indigenous methods are regenerative. They strengthen social ties and local economies, which are essential elements of resilience in times of crisis. By contrast, most mainstream adaptation projects (e.g., seawalls, desalination plants, solar farms, etc.) tend to deliver what looks like progress but often leave communities no stronger once the ribbon is cut. Jobs vanish when construction ends, as maintenance mostly depends on outside contractors. The promise of resilience turns into dependence, and the social fabric that sustains real recovery frays quietly due to rising tensions and conflicting interests.</p>
-                            <p class="mb-4">Indigenous systems move differently. They do not just build things; they rebuild relationships. In Nepal, community forestry groups have restored degraded hillsides while creating local institutions where women and landless farmers share power and income. In the Sahel, Farmer-Managed Natural Regeneration revives both trees and trust, as neighbors work together to protect shoots and share the benefits. In Mexico's milpa fields, maize, beans, and squash still grow side by side through communal labor traditions like tequio, which keep value circulating within the village and reciprocity alive across generations.</p>
-                            <p class="mb-4">These are not just environmental practices; they are social contracts. They make adaptation something lived, not engineered; something that renews ecosystems and the bonds that hold a community together. Where mainstream projects often end when the budget does, these systems endure because they are rooted in belonging, not procurement.</p>
-                            <p class="mb-4">Hence, recognizing and investing in these qualities is not an act of charity or mere cultural appreciation; it is smart, science-based, risk-mitigating policy.</p>
-
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">Ethical Scaling and Investment</h5>
-                            <p class="mb-4">Yet most global climate finance still moves slowly, toward large-scale infrastructure projects managed by distant governments or multinational corporations. This architecture consistently leaves nimble, community-led solutions struggling for the necessary support. To treat this proven expertise as an anecdote and not as an investment is a profound policy failure that is slowing down the world's ability to adapt. These systems can be framed in the very language that shapes modern adaptation finance: efficiency, scalability, and measurable impact. When national planners or donors weigh projects, they ask familiar questions: What is the cost per beneficiary? How sustainable is the benefit once funding ends? Who maintains the infrastructure? Indigenous systems already answer these questions; only more quietly, through outcomes that endure.</p>
-                            <p class="mb-4">Farmer-Managed Regeneration in Niger restores land for less than twenty dollars per hectare, compared to hundreds for conventional tree-planting schemes. Community forestry in Nepal has improved forest cover and household income while costing a fraction of state-led reforestation programs. In Kenya, the Green Belt Movement created both ecological restoration and steady income for rural women, something few large infrastructure projects can claim. These examples show that Indigenous approaches meet every metric, including cost-effectiveness, long-term maintenance, and social inclusion decision-taking stakeholders value; yet they are rarely counted because they are not yet understood as scalable and highly effective interventions.</p>
-                            <p class="mb-4">Recognizing them as such would transform climate finance itself. If adaptation funds measured success not only in kilometers of embankment or megawatts installed but in ecosystems restored, livelihoods secured, and governance strengthened, these living systems would immediately rise to the top of every priority list.</p>
-                            <p class="mb-4">Scaling this knowledge is not a simple matter of copying techniques from one place and pasting them onto another. It demands sustained investment, fair and equitable partnerships, and, most critically, unwavering respect for land and resource rights. But unfortunately, according to the International Institute for Environment and Development, less than 10% of climate finance ever reaches local communities directly.</p>
-                            <p class="mb-4">Funding must reach the people who hold and practice the knowledge, not just pass through layers of intermediaries, consultants and contractors, and bloated administrative structures. When governments or donors treat Indigenous expertise as merely "traditional" or as a disposable resource to be extracted for a project, they undermine the very social and political systems that keep the knowledge alive. This approach destroys the resilience they claim to be building. Global frameworks, like the UN Declaration on the Rights of Indigenous Peoples (UNDRIP), clearly set the standards for free, prior, and informed consent (FPIC), but implementation continues to lag critically behind the rhetoric. The challenge is not writing new policy, but enacting existing justice.</p>
-                            <p>Indigenous knowledge is not folklore or a quaint survival of a simpler past. It is vital infrastructure for life on a changing planet that is real, necessary, and as sophisticated as levees, power grids, or modern medicine. In a world already in crisis, integrating these living systems may be one of the fastest, fairest, and most powerful ways to secure a future for humanity; if only global societies are willing to recognize their true value, invest directly in their future, and uphold the rights of those who have kept them alive for millennia. The question is not whether Indigenous knowledge can scale because it already has. The question is whether global policymakers will stop pretending not to see it.</p>
-                        </div>
-                    </div>
-
-                    <!-- Publication 2 -->
-                    <div class="border border-gray-200 rounded-lg bg-white overflow-hidden shadow-sm">
-                        <button onclick="toggleAccordion('pub2')" class="w-full flex justify-between items-center p-5 text-left hover:bg-gray-50 focus:outline-none transition-colors">
-                            <div class="pr-4">
-                                <h4 class="text-lg font-bold text-primary">From Knowing to Doing: Closing the Climate Adaptation Gap</h4>
-                                <p class="text-sm text-gray-500 mt-1">Published on <span class="font-semibold text-gray-700">Prevention Web, UNDRR</span></p>
-                            </div>
-                            <i id="icon-pub2" class="fas fa-chevron-down text-gray-400 transition-transform duration-300 flex-shrink-0"></i>
-                        </button>
-                        <div id="pub2" class="hidden p-6 border-t border-gray-200 bg-gray-50 text-gray-700 text-sm leading-relaxed">
-                            <p class="mb-4 italic text-gray-600">A recent study covering 48 districts shows 89% of people are aware of climate change, yet over 80% still take no action. Why does awareness fail to become resilience?</p>
-                            <p class="mb-4">While walking through the coastal belts of Khulna or talking to farmers along the Jamuna riverbank, you will not hear them talking in academic climate terminology. They may not say "climate change" or "adaptation," but they will tell you how saltwater creeps into paddies, how floods wash away homes, and how seasons defy predictability. In Bangladesh, climate challenges and awareness are not abstract; these are lived reality.</p>
-                            <p class="mb-4">A recent study across 48 districts, involving more than 5,000 respondents, confirms this striking awareness. Nearly nine in ten participants (89.3 percent) had heard of climate change and understood its risks. By this measure, Bangladesh is among the most climate-aware nations on earth. Yet here lies the paradox: more than four in five (82.8 percent) admitted they were doing nothing to adapt. Awareness is high, but action is alarmingly low.</p>
-                            <p class="mb-4">Why do people who understand the dangers still fail to act? The answer lies not in apathy, but in two overlapping barriers. First, many adaptive practices already exist, but they remain invisible to policy and public discourse. Second, people are psychologically disempowered, feeling that their individual contributions are too small to matter.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">Barrier 1: The invisibility of adaptation to governance</h5>
-                            <p class="mb-4">Communities across Bangladesh have been adapting for generations. Families in Barisal build floating gardens (locally known as dhap or baira) to ensure food security during floods, and villagers plant mangroves along the coast to diffuse tropical storm waves. Farmers in coastal Khulna cultivate saline-tolerant rice varieties. Households harvest rainwater, terrace fields, and plant trees to prevent erosion. These are proven climate-resilient practices, yet most people do not frame them as "adaptation." They are simply "survival." Because they remain unrecognized, they are often excluded from official strategies - and rarely scaled up.</p>
-                            <p class="mb-4">This invisibility is not unique to Bangladesh. Across the globe, local ingenuity often outpaces official action. In the Indian Himalayas, women farmers are adapting to erratic rainfall by cultivating drought-resistant millet. In Peru's Andes mountains, indigenous Quechua people have established "potato parks" in collaboration with the International Centre for the Potato to preserve thousands of native potato varieties, thus acting as guardians of genetic heritage for long-term climate resilience. In Canada, First Nations' cultural burns consist of the purposeful use of fire to manage landscapes, increase biodiversity, and reduce the risk of catastrophic wildfires by both clearing underbrush and maintaining fire-dependent ecosystems. This practice is being revived to manage ecosystems and reduce wildfire risk. These practices are powerful, but they often struggle against systemic barriers, such as a lack of financial support or Western-trained agencies that have historically devalued indigenous ecological knowledge.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">Barrier 2: Psychological barriers of powerlessness</h5>
-                            <p class="mb-4">The second barrier is psychological, and it relates directly to the feeling of powerlessness. Behavioral economists and psychologists describe this as an "intention-action gap". It is the disconnect between knowing what to do and actually doing it. According to the Theory of Planned Behavior, action requires a belief in one's ability to act and support from peers. Without these, intentions can collapse before becoming behavior.</p>
-                            <p class="mb-4">The BRAC Institute of Governance and Development (BIGD) study vividly illustrates this collapse. The thousands of respondents who said they were "doing nothing" may not be expressing apathy, but rather a sense of futility, a form of what is known as "learned helplessness." When people feel their individual efforts are insignificant against large-scale threats like cyclones or rising seas, it becomes rational to cease action. This despair is intensified by pluralistic ignorance as people assume they are alone in their concerns.</p>
-                            <p class="mb-4">A similar pattern is also evident in Australia, where, despite widespread concern over climate disasters, personal actions are often limited to low-effort behaviors like switching off lights or reducing food waste, while more impactful changes are far less common. These findings point to a shared psychological barrier: a pervasive feeling of misplaced trust and powerlessness when faced with institutional inaction. This inertia has grave consequences. When adaptation practices remain invisible, communities lose confidence in their own wisdom. When individuals underestimate their power, they disengage. Together, these dynamics create a "climate doom loop" where knowledge breeds anxiety but not sustained action.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">What can we do to close the gap?</h5>
-                            <p class="mb-4">The solution lies in two critical shifts. First, we must recognize and elevate community-led practices. National Adaptation Plans should explicitly incorporate the indigenous practices as legitimate climate solutions. Financing mechanisms must be accessible to grassroots initiatives, not just megaprojects. Public campaigns should highlight these practices, naming them as "climate action." When a farmer in Bangladesh is told that her daily practices contribute to a national strategy, she gains confidence and validation.</p>
-                            <p class="mb-4">Second, individual agency must be reinforced. Climate communication should emphasize collective impact, not only looming catastrophe. Research shows that hopeful narratives paired with visible success stories encourage engagement. Behavioral nudges, such as recognition programs or peer-to-peer learning, can sustain practices. Local leadership is critical: when schools, women's groups, or youth clubs lead adaptation efforts, they normalize action. People are far more likely to persist when they see their neighbors and peers doing the same.</p>
-                            <p class="mb-4">Critics may argue that recognizing small-scale practices is symbolic and that only structural measures like embankments, cyclone shelters, and insurance systems can protect the vulnerable. This is a false dichotomy. Large-scale interventions are essential, but they cannot replace community ingenuity. Embankments hold rivers, but homestead forestry prevents soil erosion. Cyclone shelters save lives, but floating gardens sustain nutrition. Both are needed, and both must be valued.</p>
-                            
-                            <h5 class="font-bold text-gray-900 mt-6 mb-2 text-base">Resilience IN action, not resilience inaction</h5>
-                            <p class="mb-4">Bangladesh has long been portrayed in global climate discourse as a victim, a country on the brink. Yet this narrative of vulnerability overlooks the extraordinary resilience already at work in its villages and towns. By recognizing these practices, we not only strengthen adaptation but also reframe Bangladesh as a contributor of solutions. The same is true globally: indigenous fire stewardship in Canada, potato parks in Peru, and agroecology in Kenya and Rwanda are not relics of the past but resources for the future.</p>
-                            <p class="mb-4">The survey offers a sobering lesson. Awareness is widespread, yet action lags. This is not a failure of knowledge - but of recognition and agency. Closing this gap is not only about climate policy; it is about dignity, inclusion, and justice. Communities that are already adapting deserve acknowledgment, support, and amplification. Individuals who take small steps must be reminded that their actions matter and that resilience is built cumulatively.</p>
-                            <p>If we can move from knowing to doing, Bangladesh and indeed the world will not just survive climate change, but shape the strategies to face it. Climate action will not be decided in conference halls alone. It will be forged in the rice fields of Khulna, the potato fields of the Andes, and the forests of Alberta. But only if we value what is already being done and empower those who are quietly adapting every day.</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </section>
-
-        <!-- TEACHING SECTION -->
-        <section id="teaching" class="page-section">
-            <h2 class="text-3xl font-serif font-bold text-dark mb-8 border-b pb-4">Teaching</h2>
-            
-            <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
-                <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary mr-4">
-                        <i class="fas fa-university text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-2xl font-bold">BRAC University</h3>
-                        <p class="text-lg text-gray-600">Master of Development Studies</p>
-                    </div>
-                </div>
-                
-                <h4 class="font-semibold text-lg mb-2">Role: Graduate Teaching Assistant</h4>
-                <p class="text-gray-700 leading-relaxed mb-6">
-                    I actively contribute to teaching and assisting within the master level program at BRAC University. My responsibilities include supporting course design, facilitating student comprehension of complex development frameworks, and bridging the gap between theoretical environmental social science and practical field methodologies.
-                </p>
-
-                <div class="bg-gray-50 p-4 border-l-4 border-primary rounded-r">
-                    <p class="text-sm text-gray-600 italic">
-                        "As a researcher, I find that engaging with graduate students not only helps them grasp empirical and methodological tools but also constantly refines my own academic rigor."
-                    </p>
-                </div>
-
-                <!-- Course Details Added from Image -->
-                <div class="mt-10 border-t border-gray-100 pt-10">
-                    <div class="space-y-12">
-                        
-                        <!-- DEV 604 -->
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
-                            <div class="md:w-1/3 md:text-center w-full">
-                                <h5 class="text-primary font-medium text-lg mb-2">DEV 604</h5>
-                                <p class="text-primary font-semibold text-lg">Environment (Economics) & Development</p>
-                            </div>
-                            <div class="md:w-2/3 text-gray-700 text-sm md:text-base leading-relaxed">
-                                <p class="mb-3">
-                                    <span class="font-medium text-gray-900 block mb-1">Topics Covered:</span>
-                                    Public goods, Pigouvian Tax, Externalities, Optimum, Hedonic Pricing, Buchanan's Theory, Stated Preference, Value of Statistical Life, etc.
-                                </p>
-                                <p>
-                                    <span class="font-medium text-gray-900">Materials:</span>
-                                    <a href="#" class="text-gray-600 hover:text-primary underline underline-offset-2 ml-1 transition-colors">Midterm</a>
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- DEV 505 -->
-                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
-                            <div class="md:w-1/3 md:text-center w-full">
-                                <h5 class="text-primary font-medium text-lg mb-2">DEV 505</h5>
-                                <p class="text-primary font-semibold text-lg">Gender & Development</p>
-                            </div>
-                            <div class="md:w-2/3 text-gray-700 text-sm md:text-base leading-relaxed">
-                                <p class="mb-3">
-                                    <span class="font-medium text-gray-900 block mb-1">Topics Covered:</span>
-                                    WID/WAD/GAD Frameworks, Livelihood and Economic Participation, Gender-based Violence, Climate Change and Environment, Women's Leadership, Urban Gender Dynamics, Empowerment and Intersectionality
-                                </p>
-                                <p>
-                                    <span class="font-medium text-gray-900">Materials:</span>
-                                    <a href="#" class="text-secondary hover:text-primary hover:underline underline-offset-2 ml-1 transition-colors">Invisible Half (Lecture Slides)</a>
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
     </main>
 
-    <!-- Footer -->
     <footer class="bg-dark text-white py-10 mt-auto">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0 text-center md:text-left">
-                <h2 class="font-serif font-bold text-xl mb-2">Md Mahbub Ul Hassan Sharan</h2>
-                <p class="text-gray-400 text-sm">Environmental Social Science Researcher</p>
-            </div>
-            
-            <div class="flex space-x-6">
-                <a href="mailto:mahbubul.sharan@gmail.com" class="text-gray-400 hover:text-white transition transform hover:scale-110">
-                    <i class="fas fa-envelope text-xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mhsharan/" target="_blank" class="text-gray-400 hover:text-white transition transform hover:scale-110">
-                    <i class="fab fa-linkedin text-xl"></i>
-                </a>
-                <a href="https://www.instagram.com/m.h.sharan/" target="_blank" class="text-gray-400 hover:text-white transition transform hover:scale-110">
-                    <i class="fab fa-instagram text-xl"></i>
-                </a>
-                <a href="https://mhsharan.wordpress.com/" target="_blank" class="text-gray-400 hover:text-white transition transform hover:scale-110">
-                    <i class="fab fa-wordpress text-xl"></i>
-                </a>
-            </div>
+            <div class="mb-6 md:mb-0 text-center md:text-left"><h2 class="font-serif font-bold text-xl mb-2">Md Mahbub Ul Hassan Sharan</h2><p class="text-gray-400 text-sm">Environmental Social Science Researcher</p></div>
+            <div class="flex space-x-6"><a href="mailto:mahbubul.sharan@gmail.com" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-800 transition shadow"><i class="fas fa-envelope"></i></a><a href="https://www.linkedin.com/in/mhsharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:bg-blue-900 transition shadow"><i class="fab fa-linkedin-in"></i></a><a href="https://www.instagram.com/m.h.sharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#E1306C] text-white flex items-center justify-center hover:bg-pink-700 transition shadow"><i class="fab fa-instagram"></i></a><a href="https://mhsharan.wordpress.com/" target="_blank" class="w-10 h-10 rounded-full bg-[#0073aa] text-white flex items-center justify-center hover:bg-blue-900 transition shadow"><i class="fab fa-wordpress"></i></a></div>
         </div>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
-            &copy; <span id="year"></span> Md Mahbub Ul Hassan Sharan. All rights reserved.
-        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">&copy; <span id="year"></span> Md Mahbub Ul Hassan Sharan. All rights reserved.</div>
     </footer>
 
-    <!-- JavaScript for Interactivity -->
-    <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.add('hidden');
-        }
-
-        // Tab Switching Logic
-        function switchTab(tabId) {
-            // 1. Hide all sections
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-
-            // 2. Show the target section
-            const targetSection = document.getElementById(tabId);
-            if (targetSection) {
-                targetSection.classList.add('active');
-            }
-
-            // 3. Update active state on desktop navigation links
-            const navLinks = document.querySelectorAll('nav .nav-link');
-            navLinks.forEach(link => {
-                link.classList.remove('active-nav');
-                // Check if the link's onclick attribute contains the tabId
-                if (link.getAttribute('onclick') && link.getAttribute('onclick').includes(tabId)) {
-                    link.classList.add('active-nav');
-                }
-            });
-
-            // 4. Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Accordion Toggle Logic for Publications
-        function toggleAccordion(id) {
-            const content = document.getElementById(id);
-            const icon = document.getElementById('icon-' + id);
-            
-            if (content.classList.contains('hidden')) {
-                // Open accordion
-                content.classList.remove('hidden');
-                icon.classList.add('rotate-180');
-            } else {
-                // Close accordion
-                content.classList.add('hidden');
-                icon.classList.remove('rotate-180');
-            }
-        }
-    </script>
+    <script>document.getElementById('year').textContent=new Date().getFullYear(); const mobileMenuBtn=document.getElementById('mobile-menu-btn'); const mobileMenu=document.getElementById('mobile-menu'); mobileMenuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
 </body>
-
 </html>
 

@@ -1,0 +1,43 @@
+/* Smooth transitions for tab switching */
+.page-section {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+.page-section.active {
+    display: block;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.nav-link.active-nav {
+    color: #1e3a8a;
+    border-bottom: 2px solid #1e3a8a;
+    font-weight: 600;
+}
+
+/* Header / Logo */
+.site-header { background: #ffffff; }
+.site-logo { display: flex; align-items: center; }
+.site-logo img { height: 56px; width: auto; display: block; }
+
+/* Logo fallback (text) */
+.logo-text { display: none; font-family: Merriweather, serif; font-weight: 700; color: #1e3a8a; }
+.logo-text.visible { display: block; font-size: 1.125rem; }
+.nav-link { transition: color 150ms ease-in-out; }
+
+/* Mobile menu utility (works with Tailwind hidden class) */
+#mobile-menu.hidden { display: none !important; }
+
+/* Card / Cover image helpers */
+.card-cover { width: 100%; height: 10rem; overflow: hidden; }
+.card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Page spacing */
+.page-section { margin-top: 0.5rem; }
+
+/* Footer tweaks */
+footer { background: #0f1724; }
+
+/* Small accessibility focus ring for interactive buttons */
+button:focus, a:focus { outline: 3px solid rgba(30,58,138,0.12); outline-offset: 2px; }

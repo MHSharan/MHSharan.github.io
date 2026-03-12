@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Teaching — Md Mahbub Ul Hassan Sharan</title>
+    <script src="tailwind-config.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light text-gray-800 font-sans antialiased flex flex-col min-h-screen">
+    <header class="bg-white shadow-sm sticky top-0 z-50 site-header">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20 gap-4">
+                <div class="flex-shrink-0 flex items-center site-logo"><a href="index.html"><img src="images/logo.png" alt="mH Sharan Logo" class="h-10 md:h-14 object-contain"></a></div>
+                <nav class="hidden lg:flex items-center space-x-6 xl:space-x-8">
+                    <a href="about.html" class="nav-link text-gray-600 hover:text-primary">About</a>
+                    <a href="resume.html" class="nav-link text-gray-600 hover:text-primary">Resume</a>
+                    <a href="research.html" class="nav-link text-gray-600 hover:text-primary">Research</a>
+                    <a href="writings.html" class="nav-link text-gray-600 hover:text-primary">Writings</a>
+                    <a href="teaching.html" class="nav-link active-nav text-gray-600 hover:text-primary">Teaching</a>
+                </nav>
+                <div class="lg:hidden flex items-center"><button id="mobile-menu-btn" class="text-gray-600 hover:text-primary p-2"><i class="fas fa-bars text-2xl"></i></button></div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 pb-4 shadow-inner">
+            <div class="flex flex-col px-4 pt-2">
+                <a href="about.html" class="py-3">About</a>
+                <a href="resume.html" class="py-3">Resume</a>
+                <a href="research.html" class="py-3">Research</a>
+                <a href="writings.html" class="py-3">Writings</a>
+                <a href="teaching.html" class="py-3">Teaching</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        <section id="teaching" class="page-section active">
+            <h2 class="text-3xl font-serif font-bold text-dark mb-8 border-b pb-4">Teaching</h2>
+            <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center text-primary mr-4"><i class="fas fa-university text-2xl"></i></div>
+                    <div>
+                        <h3 class="text-2xl font-bold">BRAC University</h3>
+                        <p class="text-lg text-gray-600">Master of Development Studies</p>
+                    </div>
+                </div>
+                <h4 class="font-semibold text-lg mb-2">Role: Graduate Teaching Assistant</h4>
+                <p class="text-gray-700 leading-relaxed mb-6">I actively contribute to teaching and assisting within the master level program at BRAC University. My responsibilities include supporting course design, facilitating student comprehension of complex development frameworks, and bridging the gap between theoretical environmental social science and practical field methodologies.</p>
+                <div class="bg-gray-50 p-4 border-l-4 border-primary rounded-r"><p class="text-sm text-gray-600 italic">"As a researcher, I find that engaging with graduate students not only helps them grasp empirical and methodological tools but also constantly refines my own academic rigor."</p></div>
+                <div class="mt-10 border-t border-gray-100 pt-10">
+                    <div class="space-y-12">
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                            <div class="md:w-1/3 md:text-center w-full"><h5 class="text-primary font-medium text-lg mb-2">DEV 604</h5><p class="text-primary font-semibold text-lg">Environment (Economics) & Development</p></div>
+                            <div class="md:w-2/3 text-gray-700 text-sm md:text-base leading-relaxed">
+                                <p class="mb-3"><span class="font-medium text-gray-900 block mb-1">Topics Covered:</span> Public goods, Pigouvian Tax, Externalities, Optimum, Hedonic Pricing, Buchanan's Theory, Stated Preference, Value of Statistical Life, etc.</p>
+                                <p><span class="font-medium text-gray-900">Materials:</span> <a href="#" class="text-gray-600 hover:text-primary underline">Midterm</a></p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 md:gap-8 items-start">
+                            <div class="md:w-1/3 md:text-center w-full"><h5 class="text-primary font-medium text-lg mb-2">DEV 505</h5><p class="text-primary font-semibold text-lg">Gender & Development</p></div>
+                            <div class="md:w-2/3 text-gray-700 text-sm md:text-base leading-relaxed">
+                                <p class="mb-3"><span class="font-medium text-gray-900 block mb-1">Topics Covered:</span> WID/WAD/GAD Frameworks, Livelihood and Economic Participation, Gender-based Violence, Climate Change and Environment, Women's Leadership, Urban Gender Dynamics, Empowerment and Intersectionality</p>
+                                <p><span class="font-medium text-gray-900">Materials:</span> <a href="#" class="text-secondary hover:text-primary hover:underline">Invisible Half (Lecture Slides)</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-10 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 text-center md:text-left"><h2 class="font-serif font-bold text-xl mb-2">Md Mahbub Ul Hassan Sharan</h2><p class="text-gray-400 text-sm">Environmental Social Science Researcher</p></div>
+            <div class="flex space-x-6"><a href="mailto:mahbubul.sharan@gmail.com" class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-800 transition shadow"><i class="fas fa-envelope"></i></a><a href="https://www.linkedin.com/in/mhsharan/" target="_blank" class="w-10 h-10 rounded-full bg-[#0077b5] text-white flex items-center justify-center hover:bg-blue-900 transition shadow"><i class="fab fa-linkedin-in"></i></a></div>
+        </div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">&copy; <span id="year"></span> Md Mahbub Ul Hassan Sharan. All rights reserved.</div>
+    </footer>
+
+    <script>document.getElementById('year').textContent=new Date().getFullYear(); const mobileMenuBtn=document.getElementById('mobile-menu-btn'); const mobileMenu=document.getElementById('mobile-menu'); mobileMenuBtn.addEventListener('click',()=>{mobileMenu.classList.toggle('hidden');});</script>
+</body>
+</html>
